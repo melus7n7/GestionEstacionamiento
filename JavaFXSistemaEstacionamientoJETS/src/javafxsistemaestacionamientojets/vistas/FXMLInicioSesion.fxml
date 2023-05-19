@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="433.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxpruebasistemaestacionamiento.controladores.FXMLInicioSesionController">
+   <children>
+      <ImageView fitHeight="473.0" fitWidth="804.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/fondoInicioSesion.png" />
+         </image>
+      </ImageView>
+      <Rectangle fill="#14202e" height="452.0" opacity="0.85" stroke="#0b0b2b00" strokeType="INSIDE" strokeWidth="6.0" width="438.0" />
+      <Label layoutX="64.0" layoutY="52.0" text="Inicio Sesión" textFill="WHITE">
+         <font>
+            <Font name="Trebuchet MS Bold" size="51.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="141.0" text="Usuario:" textFill="WHITE">
+         <font>
+            <Font name="Trebuchet MS Italic" size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFieldUsuario" layoutX="76.0" layoutY="182.0" prefHeight="27.0" prefWidth="286.0" promptText="Usuario">
+         <font>
+            <Font name="SansSerif Regular" size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="25.0" layoutY="246.0" text="Contraseña:" textFill="WHITE">
+         <font>
+            <Font name="Trebuchet MS Italic" size="25.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="pssFieldContrasena" layoutX="76.0" layoutY="290.0" prefHeight="31.0" prefWidth="286.0" promptText="Contraseña">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="169.0" layoutY="368.0" mnemonicParsing="false" onAction="#clicIngresar" style="-fx-background-color: #14202e; -fx-border-color: white;" text="Ingresar" textFill="WHITE">
+         <font>
+            <Font name="Trebuchet MS" size="17.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblMensajeError" layoutX="92.0" layoutY="336.0" style="-fx-background-color: #14202e;" text="Usuario y contraseña requeridas" textFill="#ff6b6b" visible="false">
+         <font>
+            <Font name="Trebuchet MS Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="27.0" text="Sistema de Gestión de Estacionamiento" textFill="WHITE">
+         <font>
+            <Font name="Trebuchet MS Italic" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
