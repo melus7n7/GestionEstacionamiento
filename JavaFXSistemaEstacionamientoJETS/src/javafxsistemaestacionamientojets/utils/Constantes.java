@@ -31,4 +31,8 @@ public class Constantes {
     
     public static final int TIPO_ADMINISTRADOR = 1;
     public static final int TIPO_DESPACHADOR = 2;
+    
+    public static final int IDTIPOAUTOMOVILES=1;
+    public static final int IDTIPOMOTOS=2;
+    public static final int IDTIPOMULTAS=3;
 }

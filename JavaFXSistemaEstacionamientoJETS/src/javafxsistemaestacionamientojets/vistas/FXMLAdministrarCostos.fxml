@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLAdministrarCostosController">
+   <children>
+      <Pane prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: silver;">
+         <children>
+            <ImageView fitHeight="53.0" fitWidth="89.0" layoutX="3.0" layoutY="-2.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clicCerrarVentana" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+               <image>
+                  <Image url="@../recursos/flecha.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="56.0" layoutY="-4.0" text="Administrar Tarifas">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TabPane layoutX="1.0" layoutY="46.0" prefHeight="623.0" prefWidth="1108.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Precio por horas para vehiculos">
+               <content>
+                  <Pane prefHeight="661.0" prefWidth="1100.0" style="-fx-background-color: white;">
+                     <children>
+                        <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onAction="#clicModificarVehiculos" prefHeight="25.0" prefWidth="100.0" text="Modificar" />
+                        <TableView fx:id="tvHorasPorVehiculo" layoutY="41.0" prefHeight="555.0" prefWidth="1100.0">
+                          <columns>
+                            <TableColumn fx:id="colHorasPorVehiculo" prefWidth="100.0" text="Horas" />
+                            <TableColumn fx:id="colTarifaPorVehiculo" prefWidth="100.0" text="Tarifa" />
+                              <TableColumn fx:id="colDescripcionPorVehiculo" prefWidth="900.0" text="Descripción" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+          <Tab text="Precio por horas para motos">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                     <children>
+                        <Button layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onAction="#clicModificarMotos" prefHeight="25.0" prefWidth="100.0" text="Modificar" />
+                        <TableView fx:id="tvHorasPorMoto" layoutY="41.0" prefHeight="555.0" prefWidth="1100.0">
+                          <columns>
+                            <TableColumn fx:id="colHorasPorMoto" prefWidth="100.0" text="Horas" />
+                            <TableColumn fx:id="colTarifasPorMoto" prefWidth="100.0" text="Tarifa" />
+                              <TableColumn fx:id="colDescripcionPorMoto" prefWidth="900.0" text="Descripción" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab text="Precio de multas">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                     <children>
+                        <Button layoutX="12.0" layoutY="11.0" mnemonicParsing="false" onAction="#clicModificarMultas" prefHeight="25.0" prefWidth="100.0" text="Modificar" />
+                        <Button layoutX="126.0" layoutY="11.0" mnemonicParsing="false" onAction="#clicAñadirMultas" prefHeight="25.0" prefWidth="100.0" text="Añadir" />
+                        <Button layoutX="240.0" layoutY="11.0" mnemonicParsing="false" onAction="#clicEliminarMultas" prefHeight="25.0" prefWidth="100.0" text="Eliminar" />
+                        <TableView fx:id="tvPrecioMultas" layoutY="41.0" prefHeight="555.0" prefWidth="1100.0">
+                          <columns>
+                            <TableColumn fx:id="colTituloMultas" prefWidth="200.0" text="Titulo" />
+                            <TableColumn fx:id="colTarifaMultas" prefWidth="100.0" text="Tarifa" />
+                              <TableColumn fx:id="colDescripcionMultas" prefWidth="800.0" text="Descripción" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
