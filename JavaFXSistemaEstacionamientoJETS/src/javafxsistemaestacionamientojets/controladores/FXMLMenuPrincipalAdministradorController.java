@@ -40,4 +40,8 @@ public class FXMLMenuPrincipalAdministradorController implements Initializable {
         escenarioAlumnos.showAndWait();
         
     }
+
+    @FXML
+    private void clicAministrarRegistros(ActionEvent event) {
+    }
 }
