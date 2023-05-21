@@ -3,6 +3,9 @@ package javafxsistemaestacionamientojets.controladores;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Time;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -94,15 +97,18 @@ public class FXMLInicioSesionController implements Initializable {
     }
     
     private void validarHorario (Usuario usuarioDespachador){
-        Calendar calendarioInstancia = Calendar.getInstance();
-        java.sql.Time tiempoEntrada = new java.sql.Time(calendarioInstancia.getTime().getTime());
-        //if(tiempoEntrada.before(usuarioDespachador.getHorarioSalida()) && tiempoEntrada.after(usuarioDespachador.getHorarioEntrada())){
+        LocalTime horaActual = LocalTime.now().minusHours(1);
+        LocalTime horaEntrada = usuarioDespachador.getHorarioEntrada().toLocalTime();
+        LocalTime horaSalida = usuarioDespachador.getHorarioSalida().toLocalTime();
+        
+        if(horaActual.isBefore(horaSalida) && horaActual.isAfter(horaEntrada)){
             Utilidades.mostrarDialogoSimple("Usuario verificado",
                             "Bienvenido(a) " +usuarioDespachador.getNombre()+" al sistema ...", Alert.AlertType.INFORMATION);
             irPantallaPrincipalDespachador(usuarioDespachador);
-        //}
-        //Utilidades.mostrarDialogoSimple("Error",
-          //  "Su horario de salida ya ocurrió por lo que no puede entrar al sistema", Alert.AlertType.ERROR);
+        }else{
+            Utilidades.mostrarDialogoSimple("Error",
+                "Su horario de salida ya ocurrió por lo que no puede entrar al sistema", Alert.AlertType.ERROR);
+        }
     }
     
     private void irPantallaPrincipalDespachador(Usuario usuario){

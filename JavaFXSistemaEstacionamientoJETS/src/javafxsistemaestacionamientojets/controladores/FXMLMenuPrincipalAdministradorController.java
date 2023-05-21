@@ -15,6 +15,7 @@ import javafxsistemaestacionamientojets.utils.Utilidades;
 
 public class FXMLMenuPrincipalAdministradorController implements Initializable {
 
+    @FXML
     private Label lblNombre;
 
     private Usuario usuarioAdministrador;
