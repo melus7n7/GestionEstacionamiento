@@ -35,11 +35,13 @@ public class FXMLMenuPrincipalDespachadorController implements Initializable {
             FXMLLoader accesoControlador = new FXMLLoader(JavaFXSistemaEstacionamientoJETS.class.getResource("vistas/FXMLDisponibilidad.fxml"));
             Parent vista = accesoControlador.load();
             FXMLDisponibilidadController disponibilidad = accesoControlador.getController();
-            //disponibilidad.inicializarUsuario(usuarioDespachador);
+            disponibilidad.inicializarUsuario(usuarioDespachador);
             
             Stage escenario = (Stage) lblNombre.getScene().getWindow();
             escenario.setScene(new Scene (vista));
             escenario.setTitle("Disponibilidad");
+            escenario.setX(30);
+            escenario.setY(20);
             escenario.show();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -49,6 +51,10 @@ public class FXMLMenuPrincipalDespachadorController implements Initializable {
     public void inicializarUsuario (Usuario usuarioDespachador){
         this.usuarioDespachador = usuarioDespachador;
         lblNombre.setText("Hola "+this.usuarioDespachador.getNombre());
+    }
+
+    @FXML
+    private void clicCobrarTarjeta(ActionEvent event) {
     }
     
 }
