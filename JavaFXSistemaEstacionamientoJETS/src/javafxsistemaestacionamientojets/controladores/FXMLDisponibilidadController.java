@@ -26,9 +26,11 @@ import javafx.stage.Stage;
 import javafxsistemaestacionamientojets.modelo.pojo.Cajon;
 import javafxsistemaestacionamientojets.JavaFXSistemaEstacionamientoJETS;
 import javafxsistemaestacionamientojets.modelo.dao.NivelDAO;
+import javafxsistemaestacionamientojets.modelo.dao.RegistroDAO;
 import javafxsistemaestacionamientojets.modelo.dao.TarjetaDAO;
 import javafxsistemaestacionamientojets.modelo.pojo.Nivel;
 import javafxsistemaestacionamientojets.modelo.pojo.NivelRespuesta;
+import javafxsistemaestacionamientojets.modelo.pojo.Registro;
 import javafxsistemaestacionamientojets.modelo.pojo.Tarjeta;
 import javafxsistemaestacionamientojets.modelo.pojo.Usuario;
 import javafxsistemaestacionamientojets.utils.Constantes;
@@ -67,7 +69,6 @@ public class FXMLDisponibilidadController implements Initializable {
     private Nivel nivelActual;
     private int posicionNivelActual;
     
-    //TO-DO
     private Usuario usuarioDespachador;
     
     @Override
@@ -275,9 +276,52 @@ public class FXMLDisponibilidadController implements Initializable {
                         Alert.AlertType.WARNING);
                 break;
             case Constantes.OPERACION_EXITOSA:
-                    //generarRegistro(tarjeta);
+                    generarRegistro(tarjeta);
                 break;
         }
+    }
+    
+    private void generarRegistro (Tarjeta tarjeta){
+        Registro registroNuevo = new Registro();
+        
+        Date hoy = new Date();
+        java.sql.Date fechaEntrada = new java.sql.Date(hoy.getTime());
+        
+        Calendar calendarioInstancia = Calendar.getInstance();
+        java.sql.Time tiempoEntrada = new java.sql.Time(calendarioInstancia.getTime().getTime());
+        
+        int idVehiculo = (nivelActual.isEsDeVehiculos())? Constantes.VEHICULO: Constantes.MOTO;
+        
+        registroNuevo.setFechaEntrada(fechaEntrada);
+        registroNuevo.setHoraEntrada(tiempoEntrada);
+        registroNuevo.setIdTipoVehiculo(idVehiculo);
+        registroNuevo.setIdEstatusTarifa(Constantes.ESTATUS_TARIFA_EN_PROCESO);
+        registroNuevo.setIdTarjeta(tarjeta.getIdTarjeta());
+        registroNuevo.setIdUsuario(usuarioDespachador.getIdUsuario());
+        
+        int respuesta = RegistroDAO.crearRegistro(registroNuevo);
+        
+        switch(respuesta){
+            case Constantes.ERROR_CONEXION:
+                    Utilidades.mostrarDialogoSimple("Sin Conexion", 
+                        "Lo sentimos por el momento no tiene conexión para hacer el registro", Alert.AlertType.ERROR);
+                break;
+            case Constantes.ERROR_CONSULTA:
+                    Utilidades.mostrarDialogoSimple("Error al cargar los datos", 
+                        "Hubo un error al crear un nuevo registro, por favor inténtelo más tarde", 
+                        Alert.AlertType.WARNING);
+                break;
+            case Constantes.OPERACION_EXITOSA:
+                    Utilidades.mostrarDialogoSimple("Tarjeta Proporcionada y Registro Creado", 
+                            "Se ha hecho un registro con la tarjeta '"+ tarjeta.getCodigo() +
+                            "' exitosamente", Alert.AlertType.INFORMATION);
+                    inicializarNivel();
+                break;
+        }
+    }
+    
+    public void inicializarUsuario (Usuario usuarioDespachador){
+        this.usuarioDespachador = usuarioDespachador;
     }
     
 }

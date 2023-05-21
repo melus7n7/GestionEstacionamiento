@@ -35,7 +35,7 @@ public class FXMLMenuPrincipalDespachadorController implements Initializable {
             FXMLLoader accesoControlador = new FXMLLoader(JavaFXSistemaEstacionamientoJETS.class.getResource("vistas/FXMLDisponibilidad.fxml"));
             Parent vista = accesoControlador.load();
             FXMLDisponibilidadController disponibilidad = accesoControlador.getController();
-            //disponibilidad.inicializarUsuario(usuarioDespachador);
+            disponibilidad.inicializarUsuario(usuarioDespachador);
             
             Stage escenario = (Stage) lblNombre.getScene().getWindow();
             escenario.setScene(new Scene (vista));
