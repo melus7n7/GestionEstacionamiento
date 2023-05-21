@@ -40,6 +40,8 @@ public class FXMLMenuPrincipalDespachadorController implements Initializable {
             Stage escenario = (Stage) lblNombre.getScene().getWindow();
             escenario.setScene(new Scene (vista));
             escenario.setTitle("Disponibilidad");
+            escenario.setX(30);
+            escenario.setY(20);
             escenario.show();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -49,6 +51,10 @@ public class FXMLMenuPrincipalDespachadorController implements Initializable {
     public void inicializarUsuario (Usuario usuarioDespachador){
         this.usuarioDespachador = usuarioDespachador;
         lblNombre.setText("Hola "+this.usuarioDespachador.getNombre());
+    }
+
+    @FXML
+    private void clicCobrarTarjeta(ActionEvent event) {
     }
     
 }

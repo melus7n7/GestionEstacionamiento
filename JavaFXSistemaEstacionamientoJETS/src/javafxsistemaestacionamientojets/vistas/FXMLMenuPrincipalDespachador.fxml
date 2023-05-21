@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLMenuPrincipalDespachadorController">
+<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="826.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLMenuPrincipalDespachadorController">
    <children>
-      <Button layoutX="244.0" layoutY="188.0" mnemonicParsing="false" onAction="#clicVerDisponibilidad" text="Ver disponibilidad" />
-      <Label fx:id="lblNombre" layoutX="439.0" layoutY="65.0" text="Hola XXX" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d7d7d7" height="226.0" layoutX="493.0" layoutY="218.0" stroke="TRANSPARENT" strokeType="INSIDE" width="248.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7d7d7" height="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="826.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d7d7d7" height="226.0" layoutX="92.0" layoutY="215.0" stroke="TRANSPARENT" strokeType="INSIDE" width="248.0" />
+      <Button layoutX="504.0" layoutY="140.0" mnemonicParsing="false" onAction="#clicVerDisponibilidad" prefHeight="58.0" prefWidth="221.0" style="-fx-background-color: black;" text="Ver disponibilidad" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="18.0" />
+         </font></Button>
+      <Label fx:id="lblNombre" alignment="CENTER" layoutX="649.0" layoutY="29.0" prefHeight="51.0" prefWidth="146.0" text="Hola XXX" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="SansSerif Italic" size="16.0" />
+         </font></Label>
+      <Label layoutX="253.0" layoutY="28.0" text="Menú Principal">
+         <font>
+            <Font name="Trebuchet MS" size="50.0" />
+         </font>
+      </Label>
+      <Button layoutX="105.0" layoutY="140.0" mnemonicParsing="false" onAction="#clicCobrarTarjeta" prefHeight="58.0" prefWidth="221.0" style="-fx-background-color: black;" text="Cobrar Tarjeta" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="271.0" fitWidth="248.0" layoutX="89.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconoCobro.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="210.0" fitWidth="194.0" layoutX="517.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/iconoDisponibilidad.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
