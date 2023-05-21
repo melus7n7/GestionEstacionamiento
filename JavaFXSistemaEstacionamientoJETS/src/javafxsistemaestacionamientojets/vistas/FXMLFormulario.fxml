@@ -7,26 +7,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="212.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLFormularioController">
+<AnchorPane id="AnchorPane" prefHeight="212.0" prefWidth="600.0" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLFormularioController">
    <children>
       <Label fx:id="lbTitulo" layoutX="34.0" layoutY="26.0" text="Añadir Tarifa">
          <font>
-            <Font size="20.0" />
+            <Font name="Trebuchet MS Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="306.0" layoutY="73.0" text="Descripción">
          <font>
-            <Font size="15.0" />
+            <Font name="Trebuchet MS" size="15.0" />
          </font>
       </Label>
       <Label layoutX="196.0" layoutY="73.0" text="Tarifa">
          <font>
-            <Font size="15.0" />
+            <Font name="Trebuchet MS" size="15.0" />
          </font>
       </Label>
       <Label layoutX="34.0" layoutY="75.0" text="Titulo">
          <font>
-            <Font size="15.0" />
+            <Font name="Trebuchet MS" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="tfTitulo" layoutX="34.0" layoutY="117.0" prefHeight="25.0" prefWidth="140.0" promptText="Ej. Multa por tarjeta" />
