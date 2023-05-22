@@ -9,20 +9,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="826.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLMenuPrincipalDespachadorController">
+<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="826.0" style="-fx-background-color: #E1E5F2;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLMenuPrincipalDespachadorController">
    <children>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d7d7d7" height="226.0" layoutX="493.0" layoutY="218.0" stroke="TRANSPARENT" strokeType="INSIDE" width="248.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7d7d7" height="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="826.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c2c54" height="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="826.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d7d7d7" height="226.0" layoutX="92.0" layoutY="215.0" stroke="TRANSPARENT" strokeType="INSIDE" width="248.0" />
       <Button layoutX="504.0" layoutY="140.0" mnemonicParsing="false" onAction="#clicVerDisponibilidad" prefHeight="58.0" prefWidth="221.0" style="-fx-background-color: black;" text="Ver disponibilidad" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="18.0" />
          </font></Button>
-      <Label fx:id="lblNombre" alignment="CENTER" layoutX="649.0" layoutY="29.0" prefHeight="51.0" prefWidth="146.0" text="Hola XXX" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="lblNombre" alignment="CENTER" layoutX="649.0" layoutY="29.0" prefHeight="51.0" prefWidth="146.0" text="Hola XXX" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="SansSerif Italic" size="16.0" />
          </font></Label>
-      <Label layoutX="253.0" layoutY="28.0" text="Menú Principal">
+      <Label layoutX="253.0" layoutY="28.0" text="Menú Principal" textFill="WHITE">
          <font>
             <Font name="Trebuchet MS" size="50.0" />
          </font>
