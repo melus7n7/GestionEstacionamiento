@@ -32,7 +32,7 @@
             <Font name="SansSerif Regular" size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="271.0" fitWidth="248.0" layoutX="89.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="212.0" fitWidth="215.0" layoutX="110.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/iconoCobro.png" />
          </image>
