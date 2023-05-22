@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,14 +9,42 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="303.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLMenuPrincipalAdministradorController">
+<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="826.0" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLMenuPrincipalAdministradorController">
     <children>
-        <Button layoutX="235.0" layoutY="80.0" onAction="#clicAdministrarTarifas" text="Administrar Tarifas" />
-      <Label layoutX="135.0" layoutY="20.0" text="Menú Principal Administrador">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblNombre" layoutX="476.0" layoutY="63.0" text="Hola XXX" />
+      <AnchorPane id="AnchorPane" prefHeight="484.0" prefWidth="818.0" style="-fx-background-color: white;">
+         <children>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d7d7d7" height="226.0" layoutX="493.0" layoutY="218.0" stroke="TRANSPARENT" strokeType="INSIDE" width="248.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7d7d7" height="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="826.0" />
+            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#d7d7d7" height="226.0" layoutX="92.0" layoutY="215.0" stroke="TRANSPARENT" strokeType="INSIDE" width="248.0" />
+            <Button layoutX="504.0" layoutY="140.0" mnemonicParsing="false" onAction="#clicAministrarRegistros" prefHeight="58.0" prefWidth="221.0" style="-fx-background-color: black;" text="Administrar Registros" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="253.0" layoutY="28.0" text="Menú Principal">
+               <font>
+                  <Font name="Trebuchet MS" size="50.0" />
+               </font>
+            </Label>
+            <Button layoutX="105.0" layoutY="140.0" mnemonicParsing="false" onAction="#clicAdministrarTarifas" prefHeight="58.0" prefWidth="221.0" style="-fx-background-color: black;" text="Administrar Tarifas" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblNombre" alignment="CENTER" layoutX="652.0" layoutY="32.0" prefHeight="51.0" prefWidth="146.0" text="Hola XXX" wrapText="true">
+               <font>
+                  <Font name="SansSerif Italic" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="205.0" fitWidth="228.0" layoutX="515.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/iconoAdministrarRegistros.png" />
+               </image></ImageView>
+            <ImageView fitHeight="195.0" fitWidth="214.0" layoutX="118.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/iconoAdministrarTarifas.png" />
+               </image></ImageView>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
