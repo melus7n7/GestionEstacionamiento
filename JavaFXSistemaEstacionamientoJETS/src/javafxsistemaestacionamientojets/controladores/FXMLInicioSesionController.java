@@ -78,13 +78,10 @@ public class FXMLInicioSesionController implements Initializable {
             case Constantes.OPERACION_EXITOSA:
                 if(usuarioRespuesta.getIdUsuario() > 0){
                     if(usuarioRespuesta.getIdTipoUsuario() == Constantes.TIPO_DESPACHADOR){
-                        //validarHorario(usuarioRespuesta);
-                        Utilidades.mostrarDialogoSimple("Usuario verificado","Bienvenido(a) " +usuarioRespuesta.getNombre()+" al sistema ...", Alert.AlertType.INFORMATION);
-                        irPantallaPrincipalDespachador(usuarioRespuesta);
-                    }
-                    if(usuarioRespuesta.getIdTipoUsuario() == Constantes.TIPO_ADMINISTRADOR){
-                        //validarHorario(usuarioRespuesta);
-                        Utilidades.mostrarDialogoSimple("Usuario verificado","Bienvenido(a) " +usuarioRespuesta.getNombre()+" al sistema ...", Alert.AlertType.INFORMATION);
+                        validarHorario(usuarioRespuesta);
+                    }else{
+                        Utilidades.mostrarDialogoSimple("Usuario verificado",
+                            "Bienvenido(a) " +usuarioRespuesta.getNombre()+" al sistema ...", Alert.AlertType.INFORMATION);
                         irPantallaPrincipalAdministrador(usuarioRespuesta);
                     }
                 }else{
