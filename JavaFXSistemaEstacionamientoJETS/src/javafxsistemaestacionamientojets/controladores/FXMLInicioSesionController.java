@@ -77,13 +77,7 @@ public class FXMLInicioSesionController implements Initializable {
                 break;
             case Constantes.OPERACION_EXITOSA:
                 if(usuarioRespuesta.getIdUsuario() > 0){
-                    if(usuarioRespuesta.getIdTipoUsuario() == Constantes.TIPO_DESPACHADOR){
-                        validarHorario(usuarioRespuesta);
-                    }else{
-                        Utilidades.mostrarDialogoSimple("Usuario verificado",
-                            "Bienvenido(a) " +usuarioRespuesta.getNombre()+" al sistema ...", Alert.AlertType.INFORMATION);
-                        irPantallaPrincipalAdministrador(usuarioRespuesta);
-                    }
+                    validarHorario(usuarioRespuesta);
                 }else{
                     Utilidades.mostrarDialogoSimple("Credenciales incorrectas",
                             "El usuario y/o constraseña no son correctos, por favor verifica la información", Alert.AlertType.WARNING);
@@ -96,18 +90,24 @@ public class FXMLInicioSesionController implements Initializable {
         }
     }
     
-    private void validarHorario (Usuario usuarioDespachador){
+    private void validarHorario (Usuario usuario){
         LocalTime horaActual = LocalTime.now().minusHours(1);
-        LocalTime horaEntrada = usuarioDespachador.getHorarioEntrada().toLocalTime();
-        LocalTime horaSalida = usuarioDespachador.getHorarioSalida().toLocalTime();
+        LocalTime horaEntrada = usuario.getHorarioEntrada().toLocalTime();
+        System.out.println(horaEntrada);
+        LocalTime horaSalida = usuario.getHorarioSalida().toLocalTime();
+        System.out.println(horaSalida);
         
         if(horaActual.isBefore(horaSalida) && horaActual.isAfter(horaEntrada)){
             Utilidades.mostrarDialogoSimple("Usuario verificado",
-                            "Bienvenido(a) " +usuarioDespachador.getNombre()+" al sistema ...", Alert.AlertType.INFORMATION);
-            irPantallaPrincipalDespachador(usuarioDespachador);
+                            "Bienvenido(a) " +usuario.getNombre()+" al sistema ...", Alert.AlertType.INFORMATION);
+            if(usuario.getIdTipoUsuario() == Constantes.TIPO_DESPACHADOR){
+                irPantallaPrincipalDespachador(usuario);
+            }else{
+                irPantallaPrincipalAdministrador(usuario);
+            }
         }else{
             Utilidades.mostrarDialogoSimple("Error",
-                "Su horario de salida ya ocurrió por lo que no puede entrar al sistema", Alert.AlertType.ERROR);
+                "Por el momento no puede entrar al sistema, es horario de mantenimiento o su hora de salida ya ocurrió", Alert.AlertType.ERROR);
         }
     }
     
