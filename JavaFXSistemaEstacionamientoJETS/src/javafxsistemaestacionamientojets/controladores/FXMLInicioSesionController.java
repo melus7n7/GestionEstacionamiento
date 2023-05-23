@@ -91,11 +91,9 @@ public class FXMLInicioSesionController implements Initializable {
     }
     
     private void validarHorario (Usuario usuario){
-        LocalTime horaActual = LocalTime.now().minusHours(1);
+        LocalTime horaActual = LocalTime.of(9, 0);//LocalTime.now().minusHours(1);
         LocalTime horaEntrada = usuario.getHorarioEntrada().toLocalTime();
-        System.out.println(horaEntrada);
         LocalTime horaSalida = usuario.getHorarioSalida().toLocalTime();
-        System.out.println(horaSalida);
         
         if(horaActual.isBefore(horaSalida) && horaActual.isAfter(horaEntrada)){
             Utilidades.mostrarDialogoSimple("Usuario verificado",

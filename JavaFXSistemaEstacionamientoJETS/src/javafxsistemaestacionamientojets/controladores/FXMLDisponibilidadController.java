@@ -264,7 +264,8 @@ public class FXMLDisponibilidadController implements Initializable {
     }
     
     private void proporcionarTarjeta(Tarjeta tarjeta){
-        int respuesta = TarjetaDAO.cambiarEstadoOtorgado(tarjeta.getIdTarjeta());
+        tarjeta.setIdEstadoTarjeta(Constantes.TARJETA_OTORGADO);
+        int respuesta = TarjetaDAO.cambiarEstado(tarjeta);
         switch(respuesta){
             case Constantes.ERROR_CONEXION:
                     Utilidades.mostrarDialogoSimple("Sin Conexion", 
@@ -298,6 +299,7 @@ public class FXMLDisponibilidadController implements Initializable {
         registroNuevo.setIdEstatusTarifa(Constantes.ESTATUS_TARIFA_EN_PROCESO);
         registroNuevo.setIdTarjeta(tarjeta.getIdTarjeta());
         registroNuevo.setIdUsuario(usuarioDespachador.getIdUsuario());
+        registroNuevo.setIdMetodoPago(Constantes.METODO_PAGO_PENDIENTE);
         
         int respuesta = RegistroDAO.crearRegistro(registroNuevo);
         

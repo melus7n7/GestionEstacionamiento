@@ -24,12 +24,18 @@ public class Registro {
     private String tipoPago;
     
     private int idTarjeta;
-    private int codigoTarjeta;
+    private String codigoTarjeta;
     
     private int idUsuario;
     private int nombreCompleto;
+    
+    private int numeroCajon;
 
     public Registro() {
+    }
+
+    public int getNumeroCajon() {
+        return numeroCajon;
     }
 
     public int getIdRegistro() {
@@ -88,7 +94,7 @@ public class Registro {
         return idTarjeta;
     }
 
-    public int getCodigoTarjeta() {
+    public String getCodigoTarjeta() {
         return codigoTarjeta;
     }
 
@@ -156,7 +162,7 @@ public class Registro {
         this.idTarjeta = idTarjeta;
     }
 
-    public void setCodigoTarjeta(int codigoTarjeta) {
+    public void setCodigoTarjeta(String codigoTarjeta) {
         this.codigoTarjeta = codigoTarjeta;
     }
 
@@ -166,6 +172,10 @@ public class Registro {
 
     public void setNombreCompleto(int nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
+    }
+
+    public void setNumeroCajon(int numeroCajon) {
+        this.numeroCajon = numeroCajon;
     }
     
     

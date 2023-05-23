@@ -35,4 +35,8 @@ public class Constantes {
     public static final int IDTIPOAUTOMOVILES=1;
     public static final int IDTIPOMOTOS=2;
     public static final int IDTIPOMULTAS=3;
+    
+    public static final int METODO_PAGO_EN_EFECTIVO = 1;
+    public static final int METODO_PAGO_POR_TARJETA = 2;
+    public static final int METODO_PAGO_PENDIENTE = 3;
 }

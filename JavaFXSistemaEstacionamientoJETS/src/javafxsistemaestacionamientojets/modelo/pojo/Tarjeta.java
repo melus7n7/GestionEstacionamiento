@@ -6,7 +6,10 @@ public class Tarjeta {
     private int idTarjeta;
     private String codigo;
     private int idEstadoTarjeta;
+    private String estadoTarjeta;
     private int idCajon;
+    private int numeroCajon;
+    private int numeroNivel;
 
     public Tarjeta() {
     }
@@ -34,6 +37,18 @@ public class Tarjeta {
         return idCajon;
     }
 
+    public String getEstadoTarjeta() {
+        return estadoTarjeta;
+    }
+
+    public int getNumeroCajon() {
+        return numeroCajon;
+    }
+
+    public int getNumeroNivel() {
+        return numeroNivel;
+    }
+
     public void setIdTarjeta(int idTarjeta) {
         this.idTarjeta = idTarjeta;
     }
@@ -48,6 +63,18 @@ public class Tarjeta {
 
     public void setIdCajon(int idCajon) {
         this.idCajon = idCajon;
+    }
+
+    public void setEstadoTarjeta(String estadoTarjeta) {
+        this.estadoTarjeta = estadoTarjeta;
+    }
+
+    public void setNumeroCajon(int numeroCajon) {
+        this.numeroCajon = numeroCajon;
+    }
+
+    public void setNumeroNivel(int numeroNivel) {
+        this.numeroNivel = numeroNivel;
     }
     
     
