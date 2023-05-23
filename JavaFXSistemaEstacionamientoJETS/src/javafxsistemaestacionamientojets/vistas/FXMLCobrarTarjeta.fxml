@@ -1,10 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLCobrarTarjetaController">   
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaestacionamientojets.controladores.FXMLCobrarTarjetaController">
+   <children>
+      <Pane prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: silver;">
+         <children>
+            <Label fx:id="lbTitulo" layoutX="56.0" layoutY="-4.0" text="Cobrar tarjeta">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="50.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="53.0" fitWidth="89.0" layoutX="3.0" layoutY="-2.0" onMouseClicked="#clicCerrarVentana" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/flecha.png" />
+               </image>
+            </ImageView>
+            <TabPane layoutX="3.0" layoutY="60.0" prefHeight="603.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Detalles de la tarjeta">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1100.0">
+                           <children>
+                              <Pane layoutY="-2.0" prefHeight="555.0" prefWidth="1095.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="31.0" text="ID de la tarjeta:">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="tvTarjetas" layoutX="-5.0" layoutY="82.0" prefHeight="475.0" prefWidth="1100.0">
+                                      <columns>
+                                        <TableColumn fx:id="tvCodigoTarjeta" prefWidth="96.0" text="Código" />
+                                        <TableColumn fx:id="tvNivelTarjeta" prefWidth="54.0" text="Nivel" />
+                                          <TableColumn fx:id="tvCajonTarjeta" prefWidth="75.0" text="Cajón" />
+                                          <TableColumn fx:id="tvTipoVehiculoTarjeta" prefWidth="156.0" text="Tipo de vehículo" />
+                                          <TableColumn fx:id="tvEstatusTarifaTarjeta" prefWidth="169.0" text="Estatus de la tarifa" />
+                                          <TableColumn fx:id="tvFechaEntradaTarjeta" prefWidth="160.0" text="Fecha de entrada" />
+                                          <TableColumn fx:id="tvHoraEntradaTarjeta" prefWidth="151.0" text="Hora de entrada" />
+                                          <TableColumn fx:id="tvNombreDespachadorTarjeta" prefWidth="238.0" text="Nombre del Despachador" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="tfIngresarIDTarjeta" layoutX="177.0" layoutY="27.0" prefHeight="39.0" prefWidth="594.0" promptText="Ingrese el Identificador de la tarjeta" />
+                                    <Button layoutX="827.0" layoutY="27.0" mnemonicParsing="false" onAction="#clicIniciarProcesoPago" text="Iniciar Proceso de Pago" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Cobrar">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane layoutX="3.0" layoutY="2.0" prefHeight="555.0" prefWidth="1095.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Label fx:id="lbIDTarjeta" layoutX="886.0" layoutY="29.0" text="ID Tarjeta: XXX">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView layoutY="66.0" prefHeight="489.0" prefWidth="465.0">
+                                      <columns>
+                                        <TableColumn prefWidth="137.0" text="Fecha de salida" />
+                                        <TableColumn prefWidth="166.0" text="Hora de entrada" />
+                                          <TableColumn prefWidth="158.0" text="Total de minutos" />
+                                      </columns>
+                                    </TableView>
+                                    <Label fx:id="lbHoraActual" layoutX="34.0" layoutY="27.0" text="Hora actual: XXX" />
+                                    <Label fx:id="lbTarifaCobro" layoutX="516.0" layoutY="390.0" text="Tarifa a cobrar: XXX">
+                                       <font>
+                                          <Font name="System Bold" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox layoutX="854.0" layoutY="99.0" prefHeight="39.0" prefWidth="180.0" promptText="Asignar Multa" />
+                                    <ComboBox layoutX="516.0" layoutY="99.0" prefHeight="39.0" prefWidth="268.0" promptText="Asignar Método de Pago" />
+                                    <Button layoutX="842.0" layoutY="389.0" mnemonicParsing="false" onAction="#clicConfirmarPago" text="Confirmar Pago" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
