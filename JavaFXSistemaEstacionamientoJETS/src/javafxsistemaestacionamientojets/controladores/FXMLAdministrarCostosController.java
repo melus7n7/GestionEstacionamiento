@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -65,6 +66,8 @@ public class FXMLAdministrarCostosController implements Initializable, INotifica
     private ObservableList<Tarifa> tarifas;
     @FXML
     private TableView<Tarifa> tvHorasPorMoto;
+    @FXML
+    private Label lbTitulo;
     
   
 
@@ -174,7 +177,7 @@ public class FXMLAdministrarCostosController implements Initializable, INotifica
         if(posicion!=-1){
             irFormulario(true, tvPrecioMultas.getSelectionModel().getSelectedItem(),true);
         }else{
-            Utilidades.mostrarDialogoSimple("Selecciona una multa", "Selecciona una multa para su edicion", Alert.AlertType.WARNING);
+            Utilidades.mostrarDialogoSimple("Selecciona una multa", "Selecciona una tarifa para su edicion", Alert.AlertType.WARNING);
         }
     }
     
@@ -213,7 +216,7 @@ public class FXMLAdministrarCostosController implements Initializable, INotifica
                     Utilidades.mostrarDialogoSimple("Error cargar los datos", "Intentelo mas tarde", Alert.AlertType.WARNING);
                     break;
                 case Constantes.OPERACION_EXITOSA:
-                    Utilidades.mostrarDialogoSimple("Tarifa eliminada", "La tarifa ha sido eliminada correctamente", Alert.AlertType.WARNING);            
+                    Utilidades.mostrarDialogoSimple("Tarifa eliminada", "La tarifa ha sido eliminada correctamente", Alert.AlertType.INFORMATION);            
                     cargarInformacionTablaMultas();
                     break;
                 }                       

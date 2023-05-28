@@ -24,7 +24,7 @@
             </Label>
          </children>
       </Pane>
-      <TabPane layoutX="1.0" layoutY="46.0" prefHeight="623.0" prefWidth="1108.0" style="-fx-background-color: sillver;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="1.0" layoutY="46.0" prefHeight="623.0" prefWidth="1108.0" style="-fx-background-color: silver;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Precio por horas para vehiculos">
                <content>

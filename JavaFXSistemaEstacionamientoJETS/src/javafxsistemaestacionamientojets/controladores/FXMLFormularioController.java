@@ -122,7 +122,7 @@ public class FXMLFormularioController implements Initializable {
             Utilidades.mostrarDialogoSimple("Error cargar los datos", "Intentelo mas tarde", Alert.AlertType.WARNING);
             break;
             case Constantes.OPERACION_EXITOSA:
-            Utilidades.mostrarDialogoSimple("Tarifa añadida", "La tarifa fue añadida correctamente", Alert.AlertType.WARNING);            
+            Utilidades.mostrarDialogoSimple("Tarifa añadida", "La tarifa fue añadida correctamente", Alert.AlertType.INFORMATION);            
             interfazNotificacion.notificarActualizacionTablas();            
             cerrarVentana();
             break;
@@ -139,7 +139,7 @@ public class FXMLFormularioController implements Initializable {
             Utilidades.mostrarDialogoSimple("Error cargar los datos", "Intentelo mas tarde", Alert.AlertType.WARNING);
             break;
             case Constantes.OPERACION_EXITOSA:
-            Utilidades.mostrarDialogoSimple("Tarifa modificada", "La informacion de la tarifa fue modificada correctamente", Alert.AlertType.WARNING);            
+            Utilidades.mostrarDialogoSimple("Tarifa modificada", "La informacion de la tarifa fue modificada correctamente", Alert.AlertType.INFORMATION);            
             interfazNotificacion.notificarActualizacionTablas();
             cerrarVentana();
             break;

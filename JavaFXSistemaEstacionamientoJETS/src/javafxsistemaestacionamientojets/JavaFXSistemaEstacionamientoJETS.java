@@ -12,8 +12,7 @@ public class JavaFXSistemaEstacionamientoJETS extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        //Parent root = FXMLLoader.load(getClass().getResource("vistas/FXMLInicioSesion.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("vistas/FXMLAdministrarRegistrosTarjetas.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("vistas/FXMLInicioSesion.fxml"));
         
         Scene scene = new Scene(root);
         
