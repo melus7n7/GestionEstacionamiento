@@ -79,7 +79,7 @@ public class FXMLInicioSesionController implements Initializable {
                 if(usuarioRespuesta.getIdUsuario() > 0){
                     validarHorario(usuarioRespuesta);
                 }else{
-                    Utilidades.mostrarDialogoSimple("Credenciales incorrectas",
+                    Utilidades.mostrarDialogoSimple("El usuario no está registrado",
                             "El usuario y/o constraseña no son correctos, por favor verifica la información", Alert.AlertType.WARNING);
                 }
                 break;
@@ -104,8 +104,13 @@ public class FXMLInicioSesionController implements Initializable {
                 irPantallaPrincipalAdministrador(usuario);
             }
         }else{
-            Utilidades.mostrarDialogoSimple("Error",
-                "Por el momento no puede entrar al sistema, es horario de mantenimiento o su hora de salida ya ocurrió", Alert.AlertType.ERROR);
+            if(usuario.getIdTipoUsuario() == Constantes.TIPO_DESPACHADOR){
+                Utilidades.mostrarDialogoSimple("Error","No se puede acceder al sistema fuera de jornada laboral"
+                    , Alert.AlertType.ERROR);
+            }else{
+                Utilidades.mostrarDialogoSimple("Error",
+                    "No se puede acceder al sistema en horas de mantenimiento", Alert.AlertType.ERROR);
+            }
         }
     }
     
