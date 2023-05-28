@@ -47,7 +47,7 @@
             <Font name="Trebuchet MS" size="17.0" />
          </font>
       </Button>
-      <Label fx:id="lblMensajeError" layoutX="92.0" layoutY="336.0" style="-fx-background-color: #14202e;" text="Usuario y contraseña requeridas" textFill="#ff6b6b" visible="false">
+      <Label fx:id="lblMensajeError" layoutX="92.0" layoutY="336.0" style="-fx-background-color: #14202e;" text="No se pueden dejar campos vacíos" textFill="#ff6b6b" visible="false">
          <font>
             <Font name="Trebuchet MS Italic" size="15.0" />
          </font>
