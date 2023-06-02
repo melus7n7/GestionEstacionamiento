@@ -2,6 +2,7 @@
 package javafxsistemaestacionamientojets.utils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafxsistemaestacionamientojets.JavaFXSistemaEstacionamientoJETS;
+import javafxsistemaestacionamientojets.modelo.pojo.MetodoPago;
 
 public class Utilidades {
     public static void mostrarDialogoSimple (String titulo, String mensaje, Alert.AlertType tipo){
@@ -39,5 +41,18 @@ public class Utilidades {
         }
         return escena;
        
+   }
+    
+    public static ArrayList <MetodoPago> obtenerMetodosPago (){
+       ArrayList <MetodoPago> metodosPago = new ArrayList();
+       MetodoPago tipo1 = new MetodoPago(1, "En efectivo");
+       MetodoPago tipo2 = new MetodoPago(2, "Por tarjeta");
+       MetodoPago tipo3 = new MetodoPago(3, "Pendiente");
+       
+       metodosPago.add(tipo1);
+       metodosPago.add(tipo2);
+       metodosPago.add(tipo3);
+       
+       return metodosPago;
    }
 }

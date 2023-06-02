@@ -3,10 +3,7 @@ package javafxsistemaestacionamientojets.controladores;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Time;
 import java.time.LocalTime;
-import java.time.ZoneId;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +15,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafxsistemaestacionamientojets.JavaFXSistemaEstacionamientoJETS;
 import javafxsistemaestacionamientojets.modelo.dao.UsuarioDAO;
@@ -39,7 +35,7 @@ public class FXMLInicioSesionController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
 
     @FXML
@@ -91,7 +87,7 @@ public class FXMLInicioSesionController implements Initializable {
     }
     
     private void validarHorario (Usuario usuario){
-        LocalTime horaActual = LocalTime.of(9, 0);//LocalTime.now().minusHours(1);
+        LocalTime horaActual = LocalTime.now().minusHours(1);
         LocalTime horaEntrada = usuario.getHorarioEntrada().toLocalTime();
         LocalTime horaSalida = usuario.getHorarioSalida().toLocalTime();
         

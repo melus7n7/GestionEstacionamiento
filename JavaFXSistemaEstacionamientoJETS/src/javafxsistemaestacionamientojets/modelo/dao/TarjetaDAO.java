@@ -77,4 +77,41 @@ public class TarjetaDAO {
         }
         return respuesta;
     }
+    //Recupera una tarjeta que encaje con el código, recupera su id, su codigo, su idEstadoTarjeta, el idCajon, el nombre de su estado
+    //El número de Cajón y el número de nivel
+    public static Tarjeta recuperarTarjeta(String codigo){
+        Tarjeta respuesta = new Tarjeta();
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD != null){
+            try{
+                String consulta = "SELECT Tarjeta.idTarjeta, Tarjeta.codigo, Tarjeta.idEstadoTarjeta, Tarjeta.idCajon, estadotarjeta.nombreEstado, " +
+                        "Cajon.numeroCajon, Nivel.numeroNivel " +
+                        "FROM procesosbd.tarjeta " +
+                        "INNER JOIN estadotarjeta ON estadotarjeta.idEstadoTarjeta = tarjeta.idEstadoTarjeta " +
+                        "INNER JOIN Cajon ON Cajon.idCajon = Tarjeta.idCajon " +
+                        "INNER JOIN Nivel ON Nivel.idNivel = Cajon.idNivel " +
+                        "WHERE Tarjeta.codigo = ? ";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+                prepararSentencia.setString(1, codigo);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                if(resultado.next()){
+                    respuesta.setIdTarjeta(resultado.getInt("idTarjeta"));
+                    respuesta.setCodigo(resultado.getString("codigo"));
+                    respuesta.setIdEstadoTarjeta(resultado.getInt("idEstadoTarjeta"));
+                    respuesta.setEstadoTarjeta(resultado.getString("nombreEstado"));
+                    respuesta.setIdCajon(resultado.getInt("idCajon"));
+                    respuesta.setNumeroCajon(resultado.getInt("numeroCajon"));
+                    respuesta.setNumeroNivel(resultado.getInt("numeroNivel"));
+                }
+                respuesta.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
+                conexionBD.close();
+            }catch(SQLException e){
+                respuesta.setCodigoRespuesta(Constantes.ERROR_CONSULTA);
+                e.printStackTrace();
+            }
+        }else{
+            respuesta.setCodigoRespuesta(Constantes.ERROR_CONEXION);
+        }
+        return respuesta;
+    }
 }

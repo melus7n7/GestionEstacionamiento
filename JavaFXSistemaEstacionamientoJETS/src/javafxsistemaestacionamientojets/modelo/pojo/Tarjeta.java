@@ -10,6 +10,8 @@ public class Tarjeta {
     private int idCajon;
     private int numeroCajon;
     private int numeroNivel;
+    
+    private int codigoRespuesta;
 
     public Tarjeta() {
     }
@@ -49,6 +51,10 @@ public class Tarjeta {
         return numeroNivel;
     }
 
+    public int getCodigoRespuesta() {
+        return codigoRespuesta;
+    }
+
     public void setIdTarjeta(int idTarjeta) {
         this.idTarjeta = idTarjeta;
     }
@@ -75,6 +81,10 @@ public class Tarjeta {
 
     public void setNumeroNivel(int numeroNivel) {
         this.numeroNivel = numeroNivel;
+    }
+
+    public void setCodigoRespuesta(int codigoRespuesta) {
+        this.codigoRespuesta = codigoRespuesta;
     }
     
     

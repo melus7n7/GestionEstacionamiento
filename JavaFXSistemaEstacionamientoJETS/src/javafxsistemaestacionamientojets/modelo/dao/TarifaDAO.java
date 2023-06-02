@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javafxsistemaestacionamientojets.modelo.ConexionBD;
+import javafxsistemaestacionamientojets.modelo.pojo.Registro;
 import javafxsistemaestacionamientojets.modelo.pojo.Tarifa;
 import javafxsistemaestacionamientojets.modelo.pojo.TarifaRespuesta;
 import javafxsistemaestacionamientojets.utils.Constantes;
@@ -119,6 +120,36 @@ public class TarifaDAO {
             }
             return respuesta;
         }
-    
+    //Pide el tipo de tarifa y la hora para poder dar el id de la tarifa y el precio que se debe adjuntar al registro
+    public static Tarifa calcularPrecio(int idTipoTarifa, int horas){
+        Tarifa respuesta = new Tarifa();
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD!=null){
+            try{
+                String consulta = "SELECT idTarifa, titulo, precio, descripción, idTipoTarifa " +
+                    "FROM procesosbd.tarifa " +
+                    "WHERE idTipoTarifa = ? AND titulo = ?"; 
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+                prepararSentencia.setInt(1, idTipoTarifa);
+                prepararSentencia.setInt(2, horas);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                if(resultado.next()){
+                    respuesta.setIdTarifa(resultado.getInt("idTarifa"));
+                    respuesta.setTitulo(resultado.getString("titulo"));
+                    respuesta.setPrecio(resultado.getDouble("precio"));
+                    respuesta.setDescripcion(resultado.getString("descripción"));
+                    respuesta.setIdTipoTarifa(resultado.getInt("idTipoTarifa"));
+                }
+                conexionBD.close();
+                respuesta.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
+            }catch(SQLException e){
+                e.printStackTrace();
+                respuesta.setCodigoRespuesta(Constantes.ERROR_CONSULTA);
+            } 
+        }else{
+            respuesta.setCodigoRespuesta(Constantes.ERROR_CONEXION);
+        }
+        return respuesta;
+    }
     
 }

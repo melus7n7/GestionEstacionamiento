@@ -3,6 +3,7 @@ package javafxsistemaestacionamientojets.modelo.pojo;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
 
 
 public class Registro {
@@ -30,6 +31,9 @@ public class Registro {
     private int nombreCompleto;
     
     private int numeroCajon;
+    private int codigoRespuesta;
+    
+    private ArrayList <Tarifa> tarifas;
 
     public Registro() {
     }
@@ -106,6 +110,18 @@ public class Registro {
         return nombreCompleto;
     }
 
+    public int getCodigoRespuesta() {
+        return codigoRespuesta;
+    }
+
+    public ArrayList<Tarifa> getTarifas() {
+        return tarifas;
+    }
+
+    public void setCodigoRespuesta(int codigoRespuesta) {
+        this.codigoRespuesta = codigoRespuesta;
+    }
+
     public void setIdRegistro(int idRegistro) {
         this.idRegistro = idRegistro;
     }
@@ -176,6 +192,10 @@ public class Registro {
 
     public void setNumeroCajon(int numeroCajon) {
         this.numeroCajon = numeroCajon;
+    }
+
+    public void setTarifas(ArrayList<Tarifa> tarifas) {
+        this.tarifas = tarifas;
     }
     
     

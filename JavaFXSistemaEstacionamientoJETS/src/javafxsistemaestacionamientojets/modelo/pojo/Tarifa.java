@@ -14,6 +14,7 @@ public class Tarifa {
     private double precio;
     private String descripcion;
     private int idTipoTarifa;
+    private int codigoRespuesta;
 
     public Tarifa() {
     }
@@ -64,6 +65,14 @@ public class Tarifa {
 
     public void setIdTipoTarifa(int idTipoTarifa) {
         this.idTipoTarifa = idTipoTarifa;
+    }
+
+    public int getCodigoRespuesta() {
+        return codigoRespuesta;
+    }
+
+    public void setCodigoRespuesta(int codigoRespuesta) {
+        this.codigoRespuesta = codigoRespuesta;
     }
     
     

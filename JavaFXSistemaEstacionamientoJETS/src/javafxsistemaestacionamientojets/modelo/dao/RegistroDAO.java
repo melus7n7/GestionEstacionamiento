@@ -91,4 +91,71 @@ public class RegistroDAO {
         }
         return respuesta;
     }
+    //Regresa la tarjeta que tiene el estado de en proceso más reciente porque sólo puede haber un registro con tarjeta pendiente
+    public static Registro recuperarRegistroPendientePago(int idTarjeta){
+        Registro respuesta = new Registro();
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD != null){
+            try{
+                String consulta = "SELECT Registro.idRegistro, Registro.idTarjeta, Tarjeta.codigo, Registro.horaEntrada, " +
+                    "Registro.fechaEntrada, Registro.idEstatusTarifa, tipovehiculo.idTipoVehiculo, " +
+                    "tipovehiculo.vehiculo " +
+                    "FROM procesosbd.registro " +
+                    "INNER JOIN Tarjeta ON Tarjeta.idTarjeta = Registro.idTarjeta " +
+                    "INNER JOIN estatustarifa ON estatustarifa.idEstatusTarifa = registro.idEstatusTarifa " +
+                    "INNER JOIN tipovehiculo ON tipovehiculo.idTipoVehiculo = Registro.idTipoVehiculo " +
+                    "WHERE Registro.idEstatusTarifa = ? AND Registro.idTarjeta = ?";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+                prepararSentencia.setInt(1, Constantes.ESTATUS_TARIFA_EN_PROCESO);
+                prepararSentencia.setInt(2, idTarjeta);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                if(resultado.next()){
+                    respuesta.setIdRegistro(resultado.getInt("idRegistro"));
+                    respuesta.setIdTarjeta(resultado.getInt("idTarjeta"));
+                    respuesta.setCodigoTarjeta(resultado.getString("codigo"));
+                    respuesta.setHoraEntrada(resultado.getTime("horaEntrada"));
+                    respuesta.setFechaEntrada(resultado.getDate("fechaEntrada"));
+                    respuesta.setIdEstatusTarifa(resultado.getInt("idEstatusTarifa"));
+                    respuesta.setIdTipoVehiculo(resultado.getInt("idTipoVehiculo"));
+                    respuesta.setTipoVehiculo(resultado.getString("vehiculo"));
+                }
+                respuesta.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
+                conexionBD.close();
+            }catch(SQLException e){
+                respuesta.setCodigoRespuesta(Constantes.ERROR_CONSULTA);
+                e.printStackTrace();
+            }
+        }else{
+            respuesta.setCodigoRespuesta(Constantes.ERROR_CONEXION);
+        }
+        return respuesta;
+    }
+    
+    public static int modificarRegistro(Registro registroModificado){
+            int respuesta;
+            Connection conexionBD = ConexionBD.abrirConexionBD();
+            if(conexionBD!=null){
+                try{
+                String sentencia = "UPDATE registro SET horaSalida = ?, fechaSalida = ?, tiempoTranscurrido = ?, " +
+                    "pagoTotal = ?, idEstatusTarifa = 1, idMetodoPago = ? " +
+                    "WHERE idRegistro = ?";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(sentencia);
+                prepararSentencia.setTime(1, registroModificado.getHoraSalida());
+                prepararSentencia.setDate(2, registroModificado.getFechaSalida());
+                prepararSentencia.setInt(3, registroModificado.getTiempoTranscurrido());
+                prepararSentencia.setDouble(4, registroModificado.getPagoTotal());                
+                prepararSentencia.setInt(5, registroModificado.getIdMetodoPago());
+                prepararSentencia.setInt(6, registroModificado.getIdRegistro());
+                int filasAfectadas = prepararSentencia.executeUpdate();
+                respuesta = (filasAfectadas == 1) ? Constantes.OPERACION_EXITOSA : Constantes.ERROR_CONSULTA;
+                conexionBD.close();
+                }catch(SQLException e){
+                    respuesta = Constantes.ERROR_CONSULTA;
+                    e.printStackTrace();
+            }
+        }else{
+            respuesta = Constantes.ERROR_CONEXION;
+        }
+        return respuesta;
+    }
 }
