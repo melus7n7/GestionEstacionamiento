@@ -1,11 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
+
 package javafxsistemaestacionamientojets.modelo.dao;
 
 import javafxsistemaestacionamientojets.modelo.pojo.Nivel;
 import javafxsistemaestacionamientojets.modelo.pojo.NivelRespuesta;
+import javafxsistemaestacionamientojets.utils.Constantes;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,13 +11,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author sulem
- */
-public class NivelDAOTest {
+
+public class NivelDAOIT {
     
-    public NivelDAOTest() {
+    public NivelDAOIT() {
     }
     
     @BeforeClass
@@ -43,13 +38,11 @@ public class NivelDAOTest {
      */
     @Test
     public void testObtenerNiveles() {
-        System.out.println("obtenerNiveles");
-        NivelRespuesta expResult = null;
+        System.out.println("Obtener Niveles del Estacionamiento");
+        NivelRespuesta expResult = new NivelRespuesta();
+        expResult.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
         NivelRespuesta result = NivelDAO.obtenerNiveles();
-        
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult.getCodigoRespuesta(), result.getCodigoRespuesta());
     }
 
     /**
@@ -57,13 +50,13 @@ public class NivelDAOTest {
      */
     @Test
     public void testObtenerCajonesNivel() {
-        System.out.println("obtenerCajonesNivel");
-        int numeroNivel = 0;
-        Nivel expResult = null;
+        System.out.println("Obtener Cajones de un Nivel del estacionamiento");
+        int numeroNivel = 100;
+        Nivel expResult = new Nivel();
+        expResult.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
         Nivel result = NivelDAO.obtenerCajonesNivel(numeroNivel);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //assertEquals(expResult.getCodigoRespuesta(), result.getCodigoRespuesta());
+        assertTrue("Prueba fallida en obtener cajones de un nivel",expResult.getCodigoRespuesta() == result.getCodigoRespuesta());
     }
     
 }
