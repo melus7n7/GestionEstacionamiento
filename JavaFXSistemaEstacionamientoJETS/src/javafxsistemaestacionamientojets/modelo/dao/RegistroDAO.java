@@ -137,15 +137,16 @@ public class RegistroDAO {
             if(conexionBD!=null){
                 try{
                 String sentencia = "UPDATE registro SET horaSalida = ?, fechaSalida = ?, tiempoTranscurrido = ?, " +
-                    "pagoTotal = ?, idEstatusTarifa = 1, idMetodoPago = ? " +
+                    "pagoTotal = ?, idEstatusTarifa = ?, idMetodoPago = ? " +
                     "WHERE idRegistro = ?";
                 PreparedStatement prepararSentencia = conexionBD.prepareStatement(sentencia);
                 prepararSentencia.setTime(1, registroModificado.getHoraSalida());
                 prepararSentencia.setDate(2, registroModificado.getFechaSalida());
                 prepararSentencia.setInt(3, registroModificado.getTiempoTranscurrido());
-                prepararSentencia.setDouble(4, registroModificado.getPagoTotal());                
-                prepararSentencia.setInt(5, registroModificado.getIdMetodoPago());
-                prepararSentencia.setInt(6, registroModificado.getIdRegistro());
+                prepararSentencia.setDouble(4, registroModificado.getPagoTotal());
+                prepararSentencia.setInt(5, registroModificado.getIdEstatusTarifa());                
+                prepararSentencia.setInt(6, registroModificado.getIdMetodoPago());
+                prepararSentencia.setInt(7, registroModificado.getIdRegistro());
                 int filasAfectadas = prepararSentencia.executeUpdate();
                 respuesta = (filasAfectadas == 1) ? Constantes.OPERACION_EXITOSA : Constantes.ERROR_CONSULTA;
                 conexionBD.close();

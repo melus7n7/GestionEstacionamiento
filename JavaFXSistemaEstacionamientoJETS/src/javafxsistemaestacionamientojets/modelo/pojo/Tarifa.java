@@ -74,8 +74,11 @@ public class Tarifa {
     public void setCodigoRespuesta(int codigoRespuesta) {
         this.codigoRespuesta = codigoRespuesta;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return descripcion;
+    }
     
 }
 

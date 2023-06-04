@@ -29,6 +29,11 @@ public class MetodoPago {
     public void setNombreMetodoPago(String nombreMetodoPago) {
         this.nombreMetodoPago = nombreMetodoPago;
     }
+
+    @Override
+    public String toString() {
+        return nombreMetodoPago;
+    }
     
     
 }

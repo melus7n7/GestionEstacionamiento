@@ -55,6 +55,21 @@ public class FXMLMenuPrincipalDespachadorController implements Initializable {
 
     @FXML
     private void clicCobrarTarjeta(ActionEvent event) {
+        try {
+            FXMLLoader accesoControlador = new FXMLLoader(JavaFXSistemaEstacionamientoJETS.class.getResource("vistas/FXMLCobrarTarjeta.fxml"));
+            Parent vista = accesoControlador.load();
+            FXMLCobrarTarjetaController disponibilidad = accesoControlador.getController();
+            disponibilidad.inicializarUsuario(usuarioDespachador);
+            
+            Stage escenario = (Stage) lblNombre.getScene().getWindow();
+            escenario.setScene(new Scene (vista));
+            escenario.setTitle("Cobrar Tarjeta");
+            escenario.setX(150);
+            escenario.setY(20);
+            escenario.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     
 }
